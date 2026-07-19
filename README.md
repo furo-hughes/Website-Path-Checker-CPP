@@ -87,3 +87,56 @@ Examples:
 ## Original behavior preserved
 
 The port preserves all functional behavior of the Python project: URL validation, path normalization and de-duplication, HTTP status categories, the `HEAD`→`GET` fallback, TLS toggle, list-size protection, concurrent processing, result summary, and exit-code semantics.
+
+
+# Website Path Checker Bootstrap Installers
+
+These scripts download `https://github.com/furo-hughes/Website-Path-Checker-CPP.git`, install missing build prerequisites, build a release executable, run the test suite, and print the program help.
+
+## Windows
+
+Open PowerShell and run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\install-windows.ps1
+```
+
+The installation path is:
+
+```text
+%LOCALAPPDATA%\Programs\Website-Path-Checker-CPP
+```
+
+Windows may request confirmation or administrator approval while winget installs Git, CMake, and Visual Studio Build Tools.
+
+## Linux
+
+```bash
+chmod +x install-linux.sh
+./install-linux.sh
+```
+
+The installation path is:
+
+```text
+${XDG_DATA_HOME:-~/.local/share}/Website-Path-Checker-CPP
+```
+
+The script supports apt, dnf, and pacman. It may request your sudo password.
+
+## macOS
+
+```bash
+chmod +x install-macos.sh
+./install-macos.sh
+```
+
+The installation path is:
+
+```text
+~/Library/Application Support/Website-Path-Checker-CPP
+```
+
+The first run can require Apple Command Line Tools and Homebrew installation prompts. Run the script again after completing those prompts.
+
